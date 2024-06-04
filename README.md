@@ -192,8 +192,8 @@ systemctl restart x-ui
 |Quantumult|iOS|收费|Apple Store|
 ||||
 |v2rayN|Windows|免费|[下载地址](https://github.com/2dust/v2rayN/releases)|
-|NekoRay / NekoBox For PC|Windows|免费|[下载地址](https://github.com/Matsuri|
-|Clash for Windows|Windows|免费|[下载地址](https://github.com/Z-Siqi/Clash-f|
+|NekoRay / NekoBox For PC|Windows|Free|[Download Here](https://github.com/MatsuriDayo/nekoray/releases)|
+|Clash for Windows|Windows|Free|[Download Here](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
 |clashN|Windows|免费|[下载地址](https://github.com/2dust/clashN/releases)|
 |Netch|Windows|免费|[下载地址](https://github.com/netchx/netch/releases)|
 |Qv2ray|Windows|免费|[下载地址](https://github.com/Qv2ray/Qv2ray/releases)|
