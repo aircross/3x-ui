@@ -1129,7 +1129,14 @@ install_iplimit() {
 
         # Check the OS and install necessary packages
         case "${release}" in
-        ubuntu | debian | armbian)
+        ubuntu)
+            if [[ "${os_version}" -ge 24 ]]; then
+                apt update && apt install python3-pip -y
+                python3 -m pip install pyasynchat --break-system-packages
+            fi
+            apt update && apt install fail2ban -y
+            ;;
+        debian | armbian)
             apt update && apt install fail2ban -y
             ;;
         centos | almalinux | rocky | oracle)
@@ -1140,8 +1147,8 @@ install_iplimit() {
             dnf -y update && dnf -y install fail2ban
             ;;
         arch | manjaro | parch)
-        pacman -Syu --noconfirm fail2ban
-        ;;
+            pacman -Syu --noconfirm fail2ban
+            ;;
         *)
             echo -e "${red}Unsupported operating system. Please check the script and install the necessary packages manually.${plain}\n"
             exit 1
