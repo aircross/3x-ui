@@ -1,12 +1,18 @@
 name: Release 3X-UI for Docker
 on:
   push:
+    branches: [ "main" ]
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
     tags:
-      - "*"
+      - "v*.*.*"
   workflow_dispatch:
 
 jobs:
-  build_and_push:
+
+  build:
+    if: github.repository == 'aircross/3x-ui'
     runs-on: ubuntu-latest
 
     steps:
@@ -18,24 +24,42 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to GHCR
-        uses: docker/login-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          readme: "README.md"
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
+      - name: Prepare
+        id: prepare
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo ::set-output name=version::${GITHUB_REF#refs/tags/}
+            echo ::set-output name=ref::${GITHUB_REF#refs/tags/}
+          else
+            echo ::set-output name=version::snapshot
+            echo ::set-output name=ref::${{ github.sha }}
+          fi
+          # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
+          # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
+          echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
+          echo ::set-output name=docker_image::${{ secrets.DOCKER_USERNAME }}/3x-ui
+    
+      - name: Build and push docker image
+        run: |
+          docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
+          --output "type=image,push=true" \
+          --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
+          --tag "${{ steps.prepare.outputs.docker_image }}:latest" \
+          --build-arg REF=${{ steps.prepare.outputs.ref }} \
+          --file Dockerfile .
+    
+      - name: Sync README.md
+        uses: ms-jpq/sync-dockerhub-readme@v1
         with:
-          images: ghcr.io/${{ github.repository }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: ${{ github.event_name != 'pull_request' }}
-          platforms: linux/amd64, linux/arm64/v8, linux/arm/v7, linux/arm/v6, linux/386
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          # repository: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
+          repository: ${{ secrets.DOCKER_USERNAME }}/3x-ui
+          readme: "README.md"
