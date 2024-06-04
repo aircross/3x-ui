@@ -175,28 +175,37 @@ systemctl restart x-ui
 
 
 ## 推荐客户端
-- Adnroid：
-  [v2rayNG](https://github.com/2dust/v2rayNG/releases)
-  <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
-<img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="165" height="64" />
-</a>
-  [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)
-  注意：Google Play 版本自 2024 年 5 月起已被第三方控制，为非开源版本，请不要下载。
-  [Clash for Android](https://github.com/MetaCubeX/ClashMetaForAndroid/releases)
-- iOS
-  免费软件：OneClick、Leaf
-  收费软件：Shadowrocket、pepi、i2Ray、Kitsunebi、Quantumult
-- Windows
-  [v2RayN](https://github.com/2dust/v2rayN/releases)
-  [NekoRay / NekoBox For PC](https://github.com/MatsuriDayo/nekoray/releases)
-  [Clash for Windows](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)
-  [clashN](https://github.com/2dust/clashN/releases)
-  [Netch](https://github.com/netchx/netch/releases)
-  [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)
-- Linux
-  NekoRay、Clash Verge、Qv2ray、V2rayA
-- MacOS
-  ClashX Pro、Qv2ray、V2rayX、V2rayU
+
+
+|软件名称|平台|收费/免费|下载地址|
+|--------|:-----:|:-----:|:----:|
+|v2rayNG|Adnroid|免费|[下载地址](https://github.com/2dust/v2rayNG/releases)<br /><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="165" height="64" /></a>|
+|NekoBox|Adnroid|免费|[下载地址](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)<br />注意：Google Play 版本自 2024 年 5 月起已被第三方控制，为非开源版本，请不要下载。|
+|Clash for Android|Adnroid|免费|[下载地址](https://github.com/MetaCubeX/ClashMetaForAndroid/releases)|
+||||
+|OneClick|iOS|免费|Apple Store|
+|Leaf|iOS|免费|Apple Store|
+|Shadowrocket|iOS|收费|Apple Store|
+|pepi|iOS|收费|Apple Store|
+|i2Ray|iOS|收费|Apple Store|
+|Kitsunebi|iOS|收费|Apple Store|
+|Quantumult|iOS|收费|Apple Store|
+||||
+|v2rayN|Windows|免费|[下载地址](https://github.com/2dust/v2rayN/releases)|
+|NekoRay / NekoBox For PC|Windows|免费|[下载地址](https://github.com/Matsuri|
+|Clash for Windows|Windows|免费|[下载地址](https://github.com/Z-Siqi/Clash-f|
+|clashN|Windows|免费|[下载地址](https://github.com/2dust/clashN/releases)|
+|Netch|Windows|免费|[下载地址](https://github.com/netchx/netch/releases)|
+|Qv2ray|Windows|免费|[下载地址](https://github.com/Qv2ray/Qv2ray/releases)|
+||||
+|NekoRay|Linux|未知|未知|
+|Clash Verge|Linux|未知|未知|
+|Qv2ray|Linux|未知|未知|
+|V2rayA|Linux|未知|未知|
+|ClashX Pro|MacOS|未知|未知|
+|Qv2ray|MacOS|未知|未知|
+|V2rayX|MacOS|未知|未知|
+|V2rayU|MacOS|未知|未知|
 
 ## 推荐服务器
 如果你觉得本项目对你有用,而且你也恰巧有这方面的需求,你也可以选择通过我的购买链接赞助我  
