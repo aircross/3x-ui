@@ -9,7 +9,7 @@
 [![](https://img.shields.io/github/v/release/aircross/3x-ui.svg)](https://github.com/aircross/3x-ui/releases)
 [![](https://img.shields.io/github/actions/workflow/status/aircross/3x-ui/release.yml.svg)](#)
 [![GO Version](https://img.shields.io/github/go-mod/go-version/aircross/3x-ui.svg)](#)
-[![Downloads](https://img.shields.io/github/downloads/aircross/3x-ui/total.svg)](#)
+[![Docker Pulls](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** This project is only for personal learning and communication, please do not use it for illegal purposes, please do not use it in a production environment
@@ -18,7 +18,10 @@
 
 <p align="left"><a href="#"><img width="125" src="https://github.com/aircross/3x-ui/assets/115543613/7aa895dd-048a-42e7-989b-afd41a74e2e1" alt="Image"></a></p>
 
-- USDT (TRC20): `TXncxkvhkDWGts487Pjqq1qT9JmwRUz8CC`
+
+## X-UI
+  If you want to use 3X-UI，you can get it here：[aircross/x-ui](https://github.com/aircross/x-ui)  
+   [![Docker Pulls](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)
 
 ## Install & Upgrade
 
@@ -189,28 +192,39 @@ remove 3x-ui from docker
 
 
 ## Client
-- Adnroid：
-  [v2rayNG](https://github.com/2dust/v2rayNG/releases)
-  <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
+
+|Name|platform|Paid/Free|Download Link|
+|--------|:-----:|:-----:|:----:|
+|v2rayNG|Adnroid|Free|[Download Here](https://github.com/2dust/v2rayNG/releases)<a href="https://play.google.com/store/apps/details?id=com.v2ray.ang">
 <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="165" height="64" />
-</a>
-  [NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)
-  Warning:Don't Download from Google Play, since May-2024, that upload from unknow gay
-  [Clash for Android](https://github.com/MetaCubeX/ClashMetaForAndroid/releases)
-- iOS
-  Free：OneClick、Leaf
-  For sale：Shadowrocket、pepi、i2Ray、Kitsunebi、Quantumult
-- Windows
-  [v2RayN](https://github.com/2dust/v2rayN/releases)
-  [NekoRay / NekoBox For PC](https://github.com/MatsuriDayo/nekoray/releases)
-  [Clash for Windows](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)
-  [clashN](https://github.com/2dust/clashN/releases)
-  [Netch](https://github.com/netchx/netch/releases)
-  [Qv2ray](https://github.com/Qv2ray/Qv2ray/releases)
-- Linux
-  NekoRay、Clash Verge、Qv2ray、V2rayA
-- MacOS
-  ClashX Pro、Qv2ray、V2rayX、V2rayU
+</a>|
+|NekoBox|Adnroid|Free|[Download Here](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)Warning:Don't Download from Google Play, since May-2024, that upload from unknow gay|
+
+|Clash for Android|Adnroid|Free|[Download Here](https://github.com/MetaCubeX/ClashMetaForAndroid/releases)|
+||||
+|OneClick|iOS|Free|Apple Store|
+|Leaf|iOS|Free|Apple Store|
+|Shadowrocket|iOS|Paid|Apple Store|
+|pepi|iOS|Paid|Apple Store|
+|i2Ray|iOS|Paid|Apple Store|
+|Kitsunebi|iOS|Paid|Apple Store|
+|Quantumult|iOS|Paid|Apple Store|
+||||
+|v2rayN|Windows|Free|[Download Here](https://github.com/2dust/v2rayN/releases)|
+|NekoRay / NekoBox For PC|Windows|Free|[Download Here](https://github.com/MatsuriDayo/nekoray/releases)|
+|Clash for Windows|Windows|Free|[Download Here](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
+|clashN|Windows|Free|[Download Here](https://github.com/2dust/clashN/releases)|
+|Netch|Windows|Free|[Download Here](https://github.com/netchx/netch/releases)|
+|Qv2ray|Windows|Free|[Download Here](https://github.com/Qv2ray/Qv2ray/releases)|
+||||
+|NekoRay|Linux|unknow|unknow|
+|Clash Verge|Linux|unknow|unknow|
+|Qv2ray|Linux|unknow|unknow|
+|V2rayA|Linux|unknow|unknow|
+|ClashX Pro|MacOS|unknow|unknow|
+|Qv2ray|MacOS|unknow|unknow|
+|V2rayX|MacOS|unknow|unknow|
+|V2rayU|MacOS|unknow|unknow|
   
 
 # Sponsor  
@@ -294,17 +308,17 @@ Our platform offers compatibility with a diverse range of architectures and devi
 
   ### Information
 
-- **Port:** 5230
+- **Port:** 2053
 - **Username & Password:** It will be generated randomly if you skip modifying.
 - **Database Path:**
   - /etc/x-ui/x-ui.db
 - **Xray Config Path:**
   - /usr/local/x-ui/bin/config.json
 - **Web Panel Path w/o Deploying SSL:**
-  - http://ip:5230/panel
-  - http://domain:5230/panel
+  - http://ip:2053/panel
+  - http://domain:2053/panel
 - **Web Panel Path w/ Deploying SSL:**
-  - https://domain:5230/panel
+  - https://domain:2053/panel
  
 </details>
 

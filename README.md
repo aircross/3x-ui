@@ -9,7 +9,7 @@
 [![](https://img.shields.io/github/v/release/aircross/3x-ui.svg)](https://github.com/aircross/3x-ui/releases)
 [![](https://img.shields.io/github/actions/workflow/status/aircross/3x-ui/release.yml.svg)](#)
 [![GO Version](https://img.shields.io/github/go-mod/go-version/aircross/3x-ui.svg)](#)
-[![Downloads](https://img.shields.io/github/downloads/aircross/3x-ui/total.svg)](#)
+[![Docker Pulls](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** 此项目仅供个人学习交流，请不要用于非法目的，请不要在生产环境中使用。
@@ -19,6 +19,9 @@
 <p align="left"><a href="#"><img width="125" src="https://github.com/aircross/3x-ui/assets/115543613/7aa895dd-048a-42e7-989b-afd41a74e2e1" alt="Image"></a></p>
 
 
+## X-UI
+  如果你需要使用X-UI，可以点击这里访问：[aircross/x-ui](https://github.com/aircross/x-ui)  
+   [![Docker Pulls](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)
 
 ## 安装 & 升级
 
@@ -176,7 +179,6 @@ systemctl restart x-ui
 
 ## 推荐客户端
 
-
 |软件名称|平台|收费/免费|下载地址|
 |--------|:-----:|:-----:|:----:|
 |v2rayNG|Adnroid|免费|[下载地址](https://github.com/2dust/v2rayNG/releases)<br /><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="165" height="64" /></a>|
@@ -192,8 +194,8 @@ systemctl restart x-ui
 |Quantumult|iOS|收费|Apple Store|
 ||||
 |v2rayN|Windows|免费|[下载地址](https://github.com/2dust/v2rayN/releases)|
-|NekoRay / NekoBox For PC|Windows|Free|[Download Here](https://github.com/MatsuriDayo/nekoray/releases)|
-|Clash for Windows|Windows|Free|[Download Here](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
+|NekoRay / NekoBox For PC|Windows|免费|[下载地址](https://github.com/MatsuriDayo/nekoray/releases)|
+|Clash for Windows|Windows|免费|[下载地址](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
 |clashN|Windows|免费|[下载地址](https://github.com/2dust/clashN/releases)|
 |Netch|Windows|免费|[下载地址](https://github.com/netchx/netch/releases)|
 |Qv2ray|Windows|免费|[下载地址](https://github.com/Qv2ray/Qv2ray/releases)|
