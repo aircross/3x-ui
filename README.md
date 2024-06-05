@@ -156,6 +156,27 @@ systemctl restart x-ui
       aircross/3x-ui:latest
    ```
 
+
+### 如果你需要安装ACME.SH用户管理SSL证书的Docker，可以执行一下命令
+
+```
+mkdir -p /opt/docker/acme.sh
+docker run -itd -v /opt/docker/acme.sh:/acme.sh --net=host --restart=unless-stopped --name=acme.sh -v /var/run/docker.sock:/var/run/docker.sock neilpang/acme.sh daemon
+docker exec \
+    -e CF_Email=你的CF邮箱 \
+    -e CF_Key=你的CF API Key  \
+    acme.sh --issue -d demo.com  --dns dns_cf  \
+    --server letsencrypt
+#默认使用letsencrypt作废证书签发服务
+```
+
+x-ui的Docker执行命令添加下面这一行
+
+```
+    -v /opt/docker/acme.sh:/acme.sh/ \
+    #在x-ui的docker里面域名证书的路径为/acme.sh/
+```
+
 更新至最新版本
 
    ```sh
