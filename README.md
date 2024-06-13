@@ -16,8 +16,10 @@
 
 **如果此项目对你有用，请给一个**:star2:
 
-<p align="left"><a href="#"><img width="125" src="https://github.com/aircross/3x-ui/assets/115543613/7aa895dd-048a-42e7-989b-afd41a74e2e1" alt="Image"></a></p>
 
+## 默认信息
+  访问端口：2053
+  用户名/密码：admin
 
 ## X-UI
   如果你需要使用X-UI，可以点击这里访问：[aircross/x-ui](https://github.com/aircross/x-ui)  
@@ -130,26 +132,29 @@ systemctl restart x-ui
    bash <(curl -sSL https://get.docker.com)
    ```
 
-2. 克隆仓库：
+2. docker compose安装，克隆仓库：
 
    ```sh
    git clone https://github.com/aircross/3x-ui.git
    cd 3x-ui
    ```
 
-3. 运行服务：
+运行服务：
 
    ```sh
    docker compose up -d
    ```
 
-   或
+
+3. docker一键安装：
 
    ```sh
+   mkdir -p /opt/docker/3x-ui/
+   mkdir -p /opt/docker/acme.sh/
    docker run -itd \
       -e XRAY_VMESS_AEAD_FORCED=false \
-      -v $PWD/db/:/etc/x-ui/ \
-      -v $PWD/cert/:/root/cert/ \
+      -v /opt/docker/3x-ui/:/etc/x-ui/ \
+      -v /opt/docker/acme.sh/:/root/cert/ \
       --network=host \
       --restart=unless-stopped \
       --name 3x-ui \
