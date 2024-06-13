@@ -19,6 +19,12 @@
   .ant-card-dark h2 {
     color: var(--dark-color-text-primary);
   }
+  table {
+      border-collapse:collapse;
+    }
+  td {
+    border: 1px solid #ccc;
+  }
 </style>
 
 <body>
@@ -257,7 +263,195 @@
                 <a-card hoverable>
                   <b>Docker:</b><br />
                   <a rel="noopener" href="https://hub.docker.com/r/aircross/3x-ui" target="_blank">aircross/3x-ui<br /><img src="https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square" /></a><br />
-                  <a rel="noopener" href="https://hub.docker.com/r/aircross/x-ui" target="_blank">X-UI<br /><img src="https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square" /></a>
+                  <a rel="noopener" href="https://hub.docker.com/r/aircross/x-ui" target="_blank">aircross/x-ui<br /><img src="https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square" /></a>
+                </a-card>
+              </a-col>
+              <a-col :sm="24" :lg="12">
+                <a-card hoverable>
+                  <b>VPS:</b><br />
+                  <a rel="noopener" href="https://bandwagonhost.com/aff.php?aff=57739" target="_blank">BandWagonHost</a><br />
+                  <a rel="noopener" href="https://app.cloudcone.com/?ref=2227" target="_blank">CloudCone</a><br />
+                  <a rel="noopener" href="https://billing.spartanhost.net/aff.php?aff=1156" target="_blank">SpartanHost</a><br />
+                  <br /><br />
+                </a-card>
+              </a-col>
+              <a-col :sm="24" :lg="12">
+                <a-card hoverable>
+                  <b>Client:</b><br />
+                  <table>
+                    <thead>
+                        <tr>
+                            <th>软件名称</th>
+                            <th>平台</th>
+                            <th>收费/免费</th>
+                            <th>下载地址</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>v2rayNG</td>
+                            <td>Adnroid</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/2dust/v2rayNG/releases">下载地址</a><br><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" rel="nofollow"><img alt="Get it on Google Play" src="https://camo.githubusercontent.com/24e5a047a2a2617f40b69cb9ada90e7c11e94d7cad428bc6107275e507e0688f/68747470733a2f2f706c61792e676f6f676c652e636f6d2f696e746c2f656e5f75732f6261646765732f696d616765732f67656e657269632f656e5f62616467655f7765625f67656e657269632e706e67" width="165" height="64" data-canonical-src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="max-width: 100%;"></a></td>
+                        </tr>
+                        <tr>
+                            <td>NekoBox</td>
+                            <td>Adnroid</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/MatsuriDayo/NekoBoxForAndroid/releases">下载地址</a><br>注意：Google Play 版本自 2024 年 5 月起已被第三方控制，为非开源版本，请不要下载。</td>
+                        </tr>
+                        <tr>
+                            <td>Clash for Android</td>
+                            <td>Adnroid</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/MetaCubeX/ClashMetaForAndroid/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>OneClick</td>
+                            <td>iOS</td>
+                            <td>免费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>Leaf</td>
+                            <td>iOS</td>
+                            <td>免费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>Shadowrocket</td>
+                            <td>iOS</td>
+                            <td>收费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>pepi</td>
+                            <td>iOS</td>
+                            <td>收费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>i2Ray</td>
+                            <td>iOS</td>
+                            <td>收费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>Kitsunebi</td>
+                            <td>iOS</td>
+                            <td>收费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td>Quantumult</td>
+                            <td>iOS</td>
+                            <td>收费</td>
+                            <td>Apple Store</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>v2rayN</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/2dust/v2rayN/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td>NekoRay / NekoBox For PC</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/MatsuriDayo/nekoray/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td>Clash for Windows</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td>clashN</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/2dust/clashN/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td>Netch</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/netchx/netch/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td>Qv2ray</td>
+                            <td>Windows</td>
+                            <td>免费</td>
+                            <td><a href="https://github.com/Qv2ray/Qv2ray/releases">下载地址</a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>NekoRay</td>
+                            <td>Linux</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>Clash Verge</td>
+                            <td>Linux</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>Qv2ray</td>
+                            <td>Linux</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>V2rayA</td>
+                            <td>Linux</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>ClashX Pro</td>
+                            <td>MacOS</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>Qv2ray</td>
+                            <td>MacOS</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>V2rayX</td>
+                            <td>MacOS</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                        <tr>
+                            <td>V2rayU</td>
+                            <td>MacOS</td>
+                            <td>未知</td>
+                            <td>未知</td>
+                        </tr>
+                    </tbody>
+                </table>
                 </a-card>
               </a-col>
             </a-row>
