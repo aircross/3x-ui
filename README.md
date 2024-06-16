@@ -91,7 +91,7 @@ esac
 wget https://github.com/aircross/3x-ui/releases/latest/download/x-ui-linux-${XUI_ARCH}.tar.gz
 ```
 
-2. 下载压缩包后，执行以下命令安装或升级 x-ui：
+2. 下载压缩包后，执行以下命令安装或升级 3x-ui：
 
 ```sh
 ARCH=$(uname -m)
