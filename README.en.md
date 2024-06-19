@@ -230,7 +230,7 @@ remove 3x-ui from docker
 # Sponsor  
 
 if you want to purchase some virtual servers,you can purchase by my aff link:   
-- [BandwagonHost](https://bandwagonhost.com/aff.php?aff=57739)     
+- [BandwagonHost](https://bandwagonhost.com/aff.php?aff=38140)     
 - [Cloudcone](https://app.cloudcone.com/?ref=2227)  
 - [SpartanHost](https://billing.spartanhost.net/aff.php?aff=1156)  
 
