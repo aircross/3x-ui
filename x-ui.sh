@@ -157,6 +157,30 @@ update() {
     fi
 }
 
+update_menu() {
+    echo -e "${yellow}Updating Menu${plain}"
+    confirm "This function will update the menu to the latest changes." "y"
+    if [[ $? != 0 ]]; then
+        LOGE "Cancelled"
+        if [[ $# == 0 ]]; then
+            before_show_menu
+        fi
+        return 0
+    fi
+
+    wget --no-check-certificate -O /usr/bin/x-ui https://raw.githubusercontent.com/MHSanaei/3x-ui/main/x-ui.sh
+    chmod +x /usr/local/x-ui/x-ui.sh
+    chmod +x /usr/bin/x-ui
+
+     if [[ $? == 0 ]]; then
+        echo -e "${green}Update successful. The panel has automatically restarted.${plain}"
+        exit 0
+    else
+        echo -e "${red}Failed to update the menu.${plain}"
+        return 1
+    fi
+}
+
 custom_version() {
     echo "Enter the panel version (like 2.0.0):"
     read panel_version
@@ -226,6 +250,32 @@ reset_user() {
     echo -e "${yellow} Panel login secret token disabled ${plain}"
     echo -e "${green} Please use the new login username and password to access the X-UI panel. Also remember them! ${plain}"
     confirm_restart
+}
+
+gen_random_string() {
+    local length="$1"
+    local random_string=$(LC_ALL=C tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w "$length" | head -n 1)
+    echo "$random_string"
+}
+
+reset_webbasepath() {
+    echo -e "${yellow}Resetting Web Base Path${plain}"
+
+    # Prompt user to set a new web base path
+    read -rp "Please set the new web base path [default is a random path]: " config_webBasePath
+
+    # If user input is empty, generate a random path
+    if [[ -z $config_webBasePath ]]; then
+        config_webBasePath=$(gen_random_string 10)
+    fi
+
+    # Apply the new web base path setting
+    /usr/local/x-ui/x-ui setting -webBasePath "${config_webBasePath}" >/dev/null 2>&1
+    systemctl restart x-ui
+
+    # Display confirmation message
+    echo -e "Web base path has been reset to: ${green}${config_webBasePath}${plain}"
+    echo -e "${green}Please use the new web base path to access the panel.${plain}"
 }
 
 reset_config() {
@@ -1253,57 +1303,62 @@ remove_iplimit() {
 show_usage() {
     echo "x-ui control menu usages: "
     echo "------------------------------------------"
-    echo -e "x-ui              - Enter control menu"
-    echo -e "x-ui start        - Start x-ui "
-    echo -e "x-ui stop         - Stop  x-ui "
-    echo -e "x-ui restart      - Restart x-ui "
-    echo -e "x-ui status       - Show x-ui status"
-    echo -e "x-ui enable       - Enable x-ui on system startup"
-    echo -e "x-ui disable      - Disable x-ui on system startup"
-    echo -e "x-ui log          - Check x-ui logs"
+    echo -e "SUBCOMMANDS:"
+    echo -e "x-ui              - Admin Management Script"
+    echo -e "x-ui start        - Start"
+    echo -e "x-ui stop         - Stop"
+    echo -e "x-ui restart      - Restart"
+    echo -e "x-ui status       - Current Status"
+    echo -e "x-ui settings     - Current Settings"
+    echo -e "x-ui enable       - Enable Autostart on OS Startup"
+    echo -e "x-ui disable      - Disable Autostart on OS Startup"
+    echo -e "x-ui log          - Check logs"
     echo -e "x-ui banlog       - Check Fail2ban ban logs"
-    echo -e "x-ui update       - Update x-ui "
-    echo -e "x-ui install      - Install x-ui "
-    echo -e "x-ui uninstall    - Uninstall x-ui "
+    echo -e "x-ui update       - Update"
+    echo -e "x-ui custom       - custom version"
+    echo -e "x-ui install      - Install"
+    echo -e "x-ui uninstall    - Uninstall"
     echo "------------------------------------------"
 }
 
 show_menu() {
     echo -e "
-  ${green}3X-ui Panel Management Script${plain}
+  ${green}3X-UI Panel Management Script${plain}
   ${green}0.${plain} Exit Script
 ————————————————
   ${green}1.${plain} Install
   ${green}2.${plain} Update
-  ${green}3.${plain} Custom Version
-  ${green}4.${plain} Uninstall
+  ${green}3.${plain} Update Menu
+  ${green}4.${plain} Custom Version
+  ${green}5.${plain} Uninstall
 ————————————————
-  ${green}5.${plain} Reset Username & Password & Secret Token
-  ${green}6.${plain} Reset Settings
-  ${green}7.${plain} Change Port
-  ${green}8.${plain} View Current Settings
+  ${green}6.${plain} Reset Username & Password & Secret Token
+  ${green}7.${plain} Reset Web Base Path
+  ${green}8.${plain} Reset Settings
+  ${green}9.${plain} Change Port
+  ${green}10.${plain} View Current Settings
 ————————————————
-  ${green}9.${plain} Start
-  ${green}10.${plain} Stop
-  ${green}11.${plain} Restart
-  ${green}12.${plain} Check Status
-  ${green}13.${plain} Check Logs
+  ${green}11.${plain} Start
+  ${green}12.${plain} Stop
+  ${green}13.${plain} Restart
+  ${green}14.${plain} Check Status
+  ${green}15.${plain} Check Logs
 ————————————————
-  ${green}14.${plain} Enable Autostart
-  ${green}15.${plain} Disable Autostart
+  ${green}16.${plain} Enable Autostart
+  ${green}17.${plain} Disable Autostart
 ————————————————
-  ${green}16.${plain} SSL Certificate Management
-  ${green}17.${plain} Cloudflare SSL Certificate
-  ${green}18.${plain} IP Limit Management
-  ${green}19.${plain} WARP Management
-  ${green}20.${plain} Firewall Management
+  ${green}18.${plain} SSL Certificate Management
+  ${green}19.${plain} Cloudflare SSL Certificate
+  ${green}20.${plain} IP Limit Management
+  ${green}21.${plain} WARP Management
+  ${green}22.${plain} Firewall Management
 ————————————————
-  ${green}21.${plain} Enable BBR 
-  ${green}22.${plain} Update Geo Files
-  ${green}23.${plain} Speedtest by Ookla
+  ${green}23.${plain} Enable BBR 
+  ${green}24.${plain} Update Geo Files
+  ${green}25.${plain} Speedtest by Ookla
 "
     show_status
-    echo && read -p "Please enter your selection [0-23]: " num
+    echo && read -p "Please enter your selection [0-25]: " num
 
     case "${num}" in
     0)
@@ -1316,70 +1371,76 @@ show_menu() {
         check_install && update
         ;;
     3)
-        check_install && custom_version
+        check_install && update_menu
         ;;
     4)
-        check_install && uninstall
+        check_install && custom_version
         ;;
     5)
-        check_install && reset_user
+        check_install && uninstall
         ;;
     6)
-        check_install && reset_config
+        check_install && reset_user
         ;;
     7)
-        check_install && set_port
+        check_install && reset_webbasepath
         ;;
     8)
-        check_install && check_config
+        check_install && reset_config
         ;;
     9)
-        check_install && start
+        check_install && set_port
         ;;
     10)
-        check_install && stop
+        check_install && check_config
         ;;
     11)
-        check_install && restart
+        check_install && start
         ;;
     12)
-        check_install && status
+        check_install && stop
         ;;
     13)
-        check_install && show_log
+        check_install && restart
         ;;
     14)
-        check_install && enable
+        check_install && status
         ;;
     15)
-        check_install && disable
+        check_install && show_log
         ;;
     16)
-        ssl_cert_issue_main
+        check_install && enable
         ;;
     17)
-        ssl_cert_issue_CF
+        check_install && disable
         ;;
     18)
-        iplimit_main
+        ssl_cert_issue_main
         ;;
     19)
-        warp_cloudflare
+        ssl_cert_issue_CF
         ;;
     20)
-        firewall_menu
+        iplimit_main
         ;;
     21)
-        bbr_menu
+        warp_cloudflare
         ;;
     22)
-        update_geo
+        firewall_menu
         ;;
     23)
+        bbr_menu
+        ;;
+    24)
+        update_geo
+        ;;
+    25)
         run_speedtest
         ;;
     *)
-        LOGE "Please enter the correct number [0-23]"
+        LOGE "Please enter the correct number [0-25]"
         ;;
     esac
 }
@@ -1387,7 +1448,7 @@ show_menu() {
 if [[ $# > 0 ]]; then
     case $1 in
     "start")
-        check_install 0 && start 0
+        check_install 0 && check_config 0
         ;;
     "stop")
         check_install 0 && stop 0
@@ -1411,7 +1472,7 @@ if [[ $# > 0 ]]; then
         check_install 0 && show_banlog 0
         ;;
     "update")
-        check_install 0 && update 0
+        check_install 0 && custom_version 0
         ;;
     "install")
         check_uninstall 0 && install 0
