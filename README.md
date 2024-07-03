@@ -237,9 +237,12 @@ x-ui的Docker执行命令添加下面这一行
 
 ## 推荐服务器
 如果你觉得本项目对你有用,而且你也恰巧有这方面的需求,你也可以选择通过我的购买链接赞助我  
-- [搬瓦工GIA高端线路](https://bandwagonhost.com/aff.php?aff=38140),仅推荐购买GIA套餐      
-- [Cloudcone性价比主机提供商](https://app.cloudcone.com/?ref=2227)  
+- [搬瓦工GIA高端线路](https://bandwagonhost.com/aff.php?aff=38140),仅推荐购买GIA套餐  
 - [Spartan三网4837性价比主机](https://billing.spartanhost.net/aff.php?aff=1156)
+- [Dmit](https://www.dmit.io/aff.php?aff=9771)    
+- [Linode](https://www.linode.com/lp/refer/?r=107a1afa3e657b37fc273df95803557588e7dcc5)    
+- [Vultr](https://www.vultr.com/?ref=7130790)    
+- [Cloudcone性价比主机提供商](https://app.cloudcone.com/?ref=2227)  
 
 ## 建议使用的操作系统
 
