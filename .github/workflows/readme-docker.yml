@@ -2,6 +2,9 @@ name: README-to-DockerHub
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - '*.md'
 
 jobs:
   build:
