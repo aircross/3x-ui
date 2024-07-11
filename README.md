@@ -128,9 +128,18 @@ systemctl restart x-ui
 
 1. 安装Docker：
 
-   ```sh
-   bash <(curl -sSL https://get.docker.com)
-   ```
+```shell
+#国外服务器使用以下命令安装Docker
+curl -fsSL https://get.docker.com | sh
+# 设置开机自启
+sudo systemctl enable docker.service
+# 根据实际需要保留参数start|restart|stop
+sudo service docker start|restart|stop
+```
+
+国内的请参照下面这个教程安装，需要配合能访问download.docker.com的服务器服用
+
+**[和谐之后如何在国内安装Docker及拉取镜像使用⁠](https://vps.la/2024/07/01/%e5%92%8c%e8%b0%90%e4%b9%8b%e5%90%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%9b%bd%e5%86%85%e5%ae%89%e8%a3%85docker%e5%8f%8a%e6%8b%89%e5%8f%96%e9%95%9c%e5%83%8f%e4%bd%bf%e7%94%a8/)**
 
 2. docker compose安装，克隆仓库：
 
