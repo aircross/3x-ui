@@ -192,6 +192,7 @@ eliminar 3x-ui de docker
 |Kitsunebi|iOS|Paid|Apple Store|
 |Quantumult|iOS|Paid|Apple Store|
 ||||
+|Clash Verge Rev|Windows|Free|[Downlowd Here](https://github.com/clash-verge-rev/clash-verge-rev/releases)|
 |v2rayN|Windows|Free|[Download Here](https://github.com/2dust/v2rayN/releases)|
 |NekoRay / NekoBox For PC|Windows|Free|[Download Here](https://github.com/MatsuriDayo/nekoray/releases)|
 |Clash for Windows|Windows|Free|[Download Here](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|

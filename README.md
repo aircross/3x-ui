@@ -228,6 +228,7 @@ x-ui的Docker执行命令添加下面这一行
 |Kitsunebi|iOS|收费|Apple Store|
 |Quantumult|iOS|收费|Apple Store|
 ||||
+|Clash Verge Rev|Windows|免费|[下载地址](https://github.com/clash-verge-rev/clash-verge-rev/releases)|
 |v2rayN|Windows|免费|[下载地址](https://github.com/2dust/v2rayN/releases)|
 |NekoRay / NekoBox For PC|Windows|免费|[下载地址](https://github.com/MatsuriDayo/nekoray/releases)|
 |Clash for Windows|Windows|免费|[下载地址](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
