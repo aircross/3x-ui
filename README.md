@@ -2,7 +2,6 @@
 
 [English](/README.md) | [Chinese](/README.zh.md) | [Español](/README.es_ES.md)
 
-<p align="center"><a href="#"><img src="./media/3X-UI.png" alt="Image"></a></p>
 
 **一个更好的面板 • 基于Xray Core构建**
 
@@ -33,10 +32,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.
 
 ## 安装指定版本
 
-要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.9`:
+要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.10`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.9
+bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.10
 ```
 
 ## SSL 认证
@@ -53,6 +52,18 @@ bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.
 - 域名已通过 cloudflare 解析到当前服务器
 
 **1:** 在终端中运行`x-ui`， 选择 `Cloudflare SSL Certificate`.
+
+### ACME
+
+使用ACME管理SSL证书:
+
+1. 确保你的域名已经正确解析到服务器.
+2. 在终端中运行 `x-ui` 命令, 然后选择 `SSL Certificate Management`.
+3. 你会看到一下选项:
+
+   - **Get SSL:** Obtain SSL certificates.
+   - **Revoke:** Revoke existing SSL certificates.
+   - **Force Renew:** Force renewal of SSL certificates.
 
 
 ### Certbot
