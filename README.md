@@ -18,7 +18,7 @@
 
 ## 默认信息
   访问端口：2053
-  
+
   用户名/密码：admin
 
 ## X-UI
@@ -544,16 +544,17 @@ XUI_BIN_FOLDER="bin" XUI_DB_FOLDER="/etc/x-ui" go build main.go
 
 ## 预览
 
-![1](./media/1.png)
-![2](./media/2.png)
-![3](./media/3.png)
-![4](./media/4.png)
-![5](./media/5.png)
-![6](./media/6.png)
-![7](./media/7.png)
+![1](https://github.com/MHSanaei/3x-ui/blob/main/media/1.png?raw=true)
+![2](https://github.com/MHSanaei/3x-ui/blob/main/media/2.png?raw=true)
+![3](https://github.com/MHSanaei/3x-ui/blob/main/media/3.png?raw=true)
+![4](https://github.com/MHSanaei/3x-ui/blob/main/media/4.png?raw=true)
+![5](https://github.com/MHSanaei/3x-ui/blob/main/media/5.png?raw=true)
+![6](https://github.com/MHSanaei/3x-ui/blob/main/media/6.png?raw=true)
+![7](https://github.com/MHSanaei/3x-ui/blob/main/media/7.png?raw=true)
 
 ## 特别感谢
 
+- [MHSanaei](https://github.com/MHSanaei/3x-ui/)
 - [alireza0](https://github.com/alireza0/)
 
 ## 致谢
