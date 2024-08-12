@@ -14,3 +14,6 @@ dist/
 release/
 /release.sh
 /x-ui
+README.es_ES.md
+README.md
+README.zh.md
