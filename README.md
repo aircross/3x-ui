@@ -26,16 +26,105 @@
 
 ## 安装 & 升级
 
+## 通过Docker安装
+
+#### 使用
+
+1. 安装Docker：
+
+```shell
+#国外服务器使用以下命令安装Docker
+curl -fsSL https://get.docker.com | sh
+# 设置开机自启
+sudo systemctl enable docker.service
+# 根据实际需要保留参数start|restart|stop
+sudo service docker start|restart|stop
+```
+
+国内的请参照下面这个教程安装，需要配合能访问download.docker.com的服务器服用
+
+**[和谐之后如何在国内安装Docker及拉取镜像使用⁠](https://vps.la/2024/07/01/%e5%92%8c%e8%b0%90%e4%b9%8b%e5%90%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%9b%bd%e5%86%85%e5%ae%89%e8%a3%85docker%e5%8f%8a%e6%8b%89%e5%8f%96%e9%95%9c%e5%83%8f%e4%bd%bf%e7%94%a8/)**
+
+2. docker compose安装，克隆仓库：
+
+   ```sh
+   git clone https://github.com/aircross/3x-ui.git
+   cd 3x-ui
+   ```
+
+运行服务：
+
+   ```sh
+   docker compose up -d
+   ```
+
+
+3. docker一键安装：
+
+   ```sh
+   mkdir -p /opt/docker/3x-ui/
+   mkdir -p /opt/docker/acme.sh/
+   docker run -itd \
+      -e XRAY_VMESS_AEAD_FORCED=false \
+      -v /opt/docker/3x-ui/:/etc/x-ui/ \
+      -v /opt/docker/acme.sh/:/root/cert/ \
+      --network=host \
+      --restart=unless-stopped \
+      --name 3x-ui \
+      aircross/3x-ui:latest
+   ```
+
+
+### 如果你需要安装ACME.SH用户管理SSL证书的Docker，可以执行一下命令
+
+```
+mkdir -p /opt/docker/acme.sh
+docker run -itd -v /opt/docker/acme.sh:/acme.sh --net=host --restart=unless-stopped --name=acme.sh -v /var/run/docker.sock:/var/run/docker.sock neilpang/acme.sh daemon
+docker exec \
+    -e CF_Email=你的CF邮箱 \
+    -e CF_Key=你的CF API Key  \
+    acme.sh --issue -d demo.com  --dns dns_cf  \
+    --server letsencrypt
+#默认使用letsencrypt作废证书签发服务
+```
+
+x-ui的Docker执行命令添加下面这一行
+
+```
+    -v /opt/docker/acme.sh:/acme.sh/ \
+    #在x-ui的docker里面域名证书的路径为/acme.sh/
+```
+
+更新至最新版本
+
+   ```sh
+    cd 3x-ui
+    docker compose down
+    docker compose pull 3x-ui
+    docker compose up -d
+   ```
+
+从Docker中删除3x-ui 
+
+   ```sh
+    docker stop 3x-ui
+    docker rm 3x-ui
+    cd --
+    rm -r 3x-ui
+   ```
+
+
+
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh)
 ```
 
 ## 安装指定版本
 
-要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.12`:
+要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.13`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.12
+bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.13
 ```
 
 ## SSL 认证
@@ -130,97 +219,7 @@ systemctl restart x-ui
 
 </details>
 
-## 通过Docker安装
 
-<details>
-  <summary>点击查看 通过Docker安装</summary>
-
-#### 使用
-
-1. 安装Docker：
-
-```shell
-#国外服务器使用以下命令安装Docker
-curl -fsSL https://get.docker.com | sh
-# 设置开机自启
-sudo systemctl enable docker.service
-# 根据实际需要保留参数start|restart|stop
-sudo service docker start|restart|stop
-```
-
-国内的请参照下面这个教程安装，需要配合能访问download.docker.com的服务器服用
-
-**[和谐之后如何在国内安装Docker及拉取镜像使用⁠](https://vps.la/2024/07/01/%e5%92%8c%e8%b0%90%e4%b9%8b%e5%90%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%9b%bd%e5%86%85%e5%ae%89%e8%a3%85docker%e5%8f%8a%e6%8b%89%e5%8f%96%e9%95%9c%e5%83%8f%e4%bd%bf%e7%94%a8/)**
-
-2. docker compose安装，克隆仓库：
-
-   ```sh
-   git clone https://github.com/aircross/3x-ui.git
-   cd 3x-ui
-   ```
-
-运行服务：
-
-   ```sh
-   docker compose up -d
-   ```
-
-
-3. docker一键安装：
-
-   ```sh
-   mkdir -p /opt/docker/3x-ui/
-   mkdir -p /opt/docker/acme.sh/
-   docker run -itd \
-      -e XRAY_VMESS_AEAD_FORCED=false \
-      -v /opt/docker/3x-ui/:/etc/x-ui/ \
-      -v /opt/docker/acme.sh/:/root/cert/ \
-      --network=host \
-      --restart=unless-stopped \
-      --name 3x-ui \
-      aircross/3x-ui:latest
-   ```
-
-
-### 如果你需要安装ACME.SH用户管理SSL证书的Docker，可以执行一下命令
-
-```
-mkdir -p /opt/docker/acme.sh
-docker run -itd -v /opt/docker/acme.sh:/acme.sh --net=host --restart=unless-stopped --name=acme.sh -v /var/run/docker.sock:/var/run/docker.sock neilpang/acme.sh daemon
-docker exec \
-    -e CF_Email=你的CF邮箱 \
-    -e CF_Key=你的CF API Key  \
-    acme.sh --issue -d demo.com  --dns dns_cf  \
-    --server letsencrypt
-#默认使用letsencrypt作废证书签发服务
-```
-
-x-ui的Docker执行命令添加下面这一行
-
-```
-    -v /opt/docker/acme.sh:/acme.sh/ \
-    #在x-ui的docker里面域名证书的路径为/acme.sh/
-```
-
-更新至最新版本
-
-   ```sh
-    cd 3x-ui
-    docker compose down
-    docker compose pull 3x-ui
-    docker compose up -d
-   ```
-
-从Docker中删除3x-ui 
-
-   ```sh
-    docker stop 3x-ui
-    docker rm 3x-ui
-    cd --
-    rm -r 3x-ui
-   ```
-
-</details>
 
 
 ## 推荐客户端
