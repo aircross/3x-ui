@@ -1,5 +1,10 @@
 const supportLangs = [
     {
+        name: '中文',
+        value: 'zh-Hans',
+        icon: '🇨🇳',
+    },
+    {
         name: 'English',
         value: 'en-US',
         icon: '🇺🇸',
@@ -8,11 +13,6 @@ const supportLangs = [
         name: 'فارسی',
         value: 'fa-IR',
         icon: '🇮🇷',
-    },
-    {
-        name: '中文',
-        value: 'zh-Hans',
-        icon: '🇨🇳',
     },
     {
         name: 'Русский',
