@@ -1,131 +1,41 @@
-# 3X-UI
+[English](/README.md) | [中文](/README.zh_CN.md) | [Español](/README.es_ES.md) | [Русский](/README.ru_RU.md)
 
-[English](/README.md) | [Chinese](/README.zh.md) | [Español](/README.es_ES.md)
-
+<p align="center"><a href="#"><img src="./media/3X-UI.png" alt="Image"></a></p>
 
 **一个更好的面板 • 基于Xray Core构建**
 
-[![](https://img.shields.io/github/v/release/aircross/3x-ui.svg)](https://github.com/aircross/3x-ui/releases)
-[![](https://img.shields.io/github/actions/workflow/status/aircross/3x-ui/release.yml.svg)](#)
-[![GO Version](https://img.shields.io/github/go-mod/go-version/aircross/3x-ui.svg)](#)
-[![Docker Pulls](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/3x-ui.svg?style=flat-square)
+[![](https://img.shields.io/github/v/release/mhsanaei/3x-ui.svg)](https://github.com/MHSanaei/3x-ui/releases)
+[![](https://img.shields.io/github/actions/workflow/status/mhsanaei/3x-ui/release.yml.svg)](#)
+[![GO Version](https://img.shields.io/github/go-mod/go-version/mhsanaei/3x-ui.svg)](#)
+[![Downloads](https://img.shields.io/github/downloads/mhsanaei/3x-ui/total.svg)](#)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 > **Disclaimer:** 此项目仅供个人学习交流，请不要用于非法目的，请不要在生产环境中使用。
 
 **如果此项目对你有用，请给一个**:star2:
 
+<p align="left">
+  <a href="https://buymeacoffee.com/mhsanaei" target="_blank">
+    <img src="./media/buymeacoffe.png" alt="Image">
+  </a>
+</p>
 
-## 默认信息
-  访问端口：2053
-
-  用户名/密码：admin
-
-## X-UI
-  如果你需要使用X-UI，可以点击这里访问：[aircross/x-ui](https://github.com/aircross/x-ui)  
-   [![Docker Pulls](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)](https://img.shields.io/docker/pulls/aircross/x-ui.svg?style=flat-square)
+- USDT (TRC20): `TXncxkvhkDWGts487Pjqq1qT9JmwRUz8CC`
+- MATIC (polygon): `0x41C9548675D044c6Bfb425786C765bc37427256A`
+- LTC (Litecoin): `ltc1q2ach7x6d2zq0n4l0t4zl7d7xe2s6fs7a3vspwv`
 
 ## 安装 & 升级
 
-## 通过Docker安装
-
-#### 使用
-
-1. 安装Docker：
-
-```shell
-#国外服务器使用以下命令安装Docker
-curl -fsSL https://get.docker.com | sh
-# 设置开机自启
-sudo systemctl enable docker.service
-# 根据实际需要保留参数start|restart|stop
-sudo service docker start|restart|stop
 ```
-
-国内的请参照下面这个教程安装，需要配合能访问download.docker.com的服务器服用
-
-**[和谐之后如何在国内安装Docker及拉取镜像使用⁠](https://vps.la/2024/07/01/%e5%92%8c%e8%b0%90%e4%b9%8b%e5%90%8e%e5%a6%82%e4%bd%95%e5%9c%a8%e5%9b%bd%e5%86%85%e5%ae%89%e8%a3%85docker%e5%8f%8a%e6%8b%89%e5%8f%96%e9%95%9c%e5%83%8f%e4%bd%bf%e7%94%a8/)**
-
-2. docker compose安装，克隆仓库：
-
-   ```sh
-   git clone https://github.com/aircross/3x-ui.git
-   cd 3x-ui
-   ```
-
-运行服务：
-
-   ```sh
-   docker compose up -d
-   ```
-
-
-3. docker一键安装：
-
-   ```sh
-   mkdir -p /opt/docker/3x-ui/
-   mkdir -p /opt/docker/acme.sh/
-   docker run -itd \
-      -e XRAY_VMESS_AEAD_FORCED=false \
-      -v /opt/docker/3x-ui/:/etc/x-ui/ \
-      -v /opt/docker/acme.sh/:/root/cert/ \
-      --network=host \
-      --restart=unless-stopped \
-      --name 3x-ui \
-      aircross/3x-ui:latest
-   ```
-
-
-### 如果你需要安装ACME.SH用户管理SSL证书的Docker，可以执行一下命令
-
-```
-mkdir -p /opt/docker/acme.sh
-docker run -itd -v /opt/docker/acme.sh:/acme.sh --net=host --restart=unless-stopped --name=acme.sh -v /var/run/docker.sock:/var/run/docker.sock neilpang/acme.sh daemon
-docker exec \
-    -e CF_Email=你的CF邮箱 \
-    -e CF_Key=你的CF API Key  \
-    acme.sh --issue -d demo.com  --dns dns_cf  \
-    --server letsencrypt
-#默认使用letsencrypt作废证书签发服务
-```
-
-x-ui的Docker执行命令添加下面这一行
-
-```
-    -v /opt/docker/acme.sh:/acme.sh/ \
-    #在x-ui的docker里面域名证书的路径为/acme.sh/
-```
-
-更新至最新版本
-
-   ```sh
-    cd 3x-ui
-    docker compose down
-    docker compose pull 3x-ui
-    docker compose up -d
-   ```
-
-从Docker中删除3x-ui 
-
-   ```sh
-    docker stop 3x-ui
-    docker rm 3x-ui
-    cd --
-    rm -r 3x-ui
-   ```
-
-
-
-```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 ```
 
 ## 安装指定版本
 
-要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.13`:
+要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.14`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.13
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v2.3.14
 ```
 
 ## SSL 认证
@@ -142,18 +52,6 @@ bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.
 - 域名已通过 cloudflare 解析到当前服务器
 
 **1:** 在终端中运行`x-ui`， 选择 `Cloudflare SSL Certificate`.
-
-### ACME
-
-使用ACME管理SSL证书:
-
-1. 确保你的域名已经正确解析到服务器.
-2. 在终端中运行 `x-ui` 命令, 然后选择 `SSL Certificate Management`.
-3. 你会看到一下选项:
-
-   - **Get SSL:** Obtain SSL certificates.
-   - **Revoke:** Revoke existing SSL certificates.
-   - **Force Renew:** Force renewal of SSL certificates.
 
 
 ### Certbot
@@ -189,10 +87,10 @@ case "${ARCH}" in
 esac
 
 
-wget https://github.com/aircross/3x-ui/releases/latest/download/x-ui-linux-${XUI_ARCH}.tar.gz
+wget https://github.com/MHSanaei/3x-ui/releases/latest/download/x-ui-linux-${XUI_ARCH}.tar.gz
 ```
 
-2. 下载压缩包后，执行以下命令安装或升级 3x-ui：
+2. 下载压缩包后，执行以下命令安装或升级 x-ui：
 
 ```sh
 ARCH=$(uname -m)
@@ -220,50 +118,101 @@ systemctl restart x-ui
 
 </details>
 
+## 通过Docker安装
+
+<details>
+  <summary>点击查看 通过Docker安装</summary>
+
+#### 使用
+
+1. 安装Docker：
+
+   ```sh
+   bash <(curl -sSL https://get.docker.com)
+   ```
+
+2. 克隆仓库：
+
+   ```sh
+   git clone https://github.com/MHSanaei/3x-ui.git
+   cd 3x-ui
+   ```
+
+3. 运行服务：
+
+   ```sh
+   docker compose up -d
+   ```
+
+   或
+
+   ```sh
+   docker run -itd \
+      -e XRAY_VMESS_AEAD_FORCED=false \
+      -v $PWD/db/:/etc/x-ui/ \
+      -v $PWD/cert/:/root/cert/ \
+      --network=host \
+      --restart=unless-stopped \
+      --name 3x-ui \
+      ghcr.io/mhsanaei/3x-ui:latest
+   ```
+
+更新至最新版本
+
+   ```sh
+    cd 3x-ui
+    docker compose down
+    docker compose pull 3x-ui
+    docker compose up -d
+   ```
+
+从Docker中删除3x-ui
+
+   ```sh
+    docker stop 3x-ui
+    docker rm 3x-ui
+    cd --
+    rm -r 3x-ui
+   ```
+
+</details>
 
 
+## Nginx 设置
+<details>
+  <summary>点击查看 反向代理配置</summary>
 
-## 推荐客户端
+#### Nginx反向代理
+```nginx
+location / {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Range $http_range;
+    proxy_set_header If-Range $http_if_range; 
+    proxy_redirect off;
+    proxy_pass http://127.0.0.1:2053;
+}
+```
 
-|软件名称|平台|收费/免费|下载地址|
-|--------|:-----:|:-----:|:----:|
-|v2rayNG|Adnroid|免费|[下载地址](https://github.com/2dust/v2rayNG/releases)<br /><a href="https://play.google.com/store/apps/details?id=com.v2ray.ang"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" width="165" height="64" /></a>|
-|NekoBox|Adnroid|免费|[下载地址](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)<br />注意：Google Play 版本自 2024 年 5 月起已被第三方控制，为非开源版本，请不要下载。|
-|Clash for Android|Adnroid|免费|[下载地址](https://github.com/MetaCubeX/ClashMetaForAndroid/releases)|
-||||
-|OneClick|iOS|免费|Apple Store|
-|Leaf|iOS|免费|Apple Store|
-|Shadowrocket|iOS|收费|Apple Store|
-|pepi|iOS|收费|Apple Store|
-|i2Ray|iOS|收费|Apple Store|
-|Kitsunebi|iOS|收费|Apple Store|
-|Quantumult|iOS|收费|Apple Store|
-||||
-|Clash Verge Rev|Windows|免费|[下载地址](https://github.com/clash-verge-rev/clash-verge-rev/releases)|
-|v2rayN|Windows|免费|[下载地址](https://github.com/2dust/v2rayN/releases)|
-|NekoRay / NekoBox For PC|Windows|免费|[下载地址](https://github.com/MatsuriDayo/nekoray/releases)|
-|Clash for Windows|Windows|免费|[下载地址](https://github.com/Z-Siqi/Clash-for-Windows_Chinese/releases)|
-|clashN|Windows|免费|[下载地址](https://github.com/2dust/clashN/releases)|
-|Netch|Windows|免费|[下载地址](https://github.com/netchx/netch/releases)|
-|Qv2ray|Windows|免费|[下载地址](https://github.com/Qv2ray/Qv2ray/releases)|
-||||
-|NekoRay|Linux|未知|未知|
-|Clash Verge|Linux|未知|未知|
-|Qv2ray|Linux|未知|未知|
-|V2rayA|Linux|未知|未知|
-|ClashX Pro|MacOS|未知|未知|
-|Qv2ray|MacOS|未知|未知|
-|V2rayX|MacOS|未知|未知|
-|V2rayU|MacOS|未知|未知|
+#### Nginx子路径
+- 确保 `/sub` 面板设置中的"面板url根路径"一致
+- 面板设置中的 `url` 需要以 `/` 结尾   
 
-## 推荐服务器
-如果你觉得本项目对你有用,而且你也恰巧有这方面的需求,你也可以选择通过我的购买链接赞助我  
-- [搬瓦工GIA高端线路](https://bandwagonhost.com/aff.php?aff=38140),仅推荐购买GIA套餐  
-- [Spartan三网4837性价比主机](https://billing.spartanhost.net/aff.php?aff=1156)
-- [Dmit](https://www.dmit.io/aff.php?aff=9771)    
-- [Linode](https://www.linode.com/lp/refer/?r=107a1afa3e657b37fc273df95803557588e7dcc5)    
-- [Vultr](https://www.vultr.com/?ref=7130790)    
-- [Cloudcone性价比主机提供商](https://app.cloudcone.com/?ref=2227)  
+```nginx
+location /sub {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Range $http_range;
+    proxy_set_header If-Range $http_if_range; 
+    proxy_redirect off;
+    proxy_pass http://127.0.0.1:2053;
+}
+```
+</details>
 
 ## 建议使用的操作系统
 
@@ -307,7 +256,6 @@ systemctl restart x-ui
 - Spanish（西班牙语）
 - Indonesian （印度尼西亚语）
 - Ukrainian（乌克兰语）
-- Turkish（土耳其语）
 
 
 ## Features
@@ -346,10 +294,10 @@ systemctl restart x-ui
   - http://domain:2053/panel
 - **面板链接（有SSL）：**
   - https://domain:2053/panel
- 
+
 </details>
 
-## [WARP 配置](https://gitlab.com/fscarmen/warp)
+## WARP 配置
 
 <details>
   <summary>点击查看 WARP 配置</summary>
@@ -400,9 +348,9 @@ systemctl restart x-ui
     1. 使用面板内置的 `x-ui` 指令
     2. 选择 `IP Limit Management`.
     3. 根据您的需要选择合适的选项。
-   
+
   - 确保您的 Xray 配置上有 ./access.log 。在 v2.1.3 之后，我们有一个选项。
-  
+
   ```sh
     "log": {
       "access": "./access.log",
@@ -460,7 +408,7 @@ Web 面板通过 Telegram Bot 支持每日流量、面板登录、数据库备�
 
 - 与 [Botfather](https://t.me/BotFather) 对话：
     ![Botfather](./media/botfather.png)
-  
+
 - 使用 /newbot 创建新机器人：你需要提供机器人名称以及用户名，注意名称中末尾要包含“bot”
     ![创建机器人](./media/newbot.png)
 
@@ -488,26 +436,25 @@ Web 面板通过 Telegram Bot 支持每日流量、面板登录、数据库备�
 - `/login` 使用 `POST` 用户名称 & 密码： `{username: '', password: ''}` 登录
 - `/panel/api/inbounds` 以下操作的基础：
 
-| Method | Path                               | Action                                      |
-| :----: | ---------------------------------- | ------------------------------------------- |
-| `GET`  | `"/list"`                          | Get all inbounds                            |
-| `GET`  | `"/get/:id"`                       | Get inbound with inbound.id                 |
-| `GET`  | `"/getClientTraffics/:email"`      | Get Client Traffics with email              |
-| `GET`  | `"/getClientTrafficsById/:id"`     | Get client's traffic By ID |
-| `GET`  | `"/createbackup"`                  | Telegram bot sends backup to admins         |
-| `POST` | `"/add"`                           | Add inbound                                 |
-| `POST` | `"/del/:id"`                       | Delete Inbound                              |
-| `POST` | `"/update/:id"`                    | Update Inbound                              |
-| `POST` | `"/clientIps/:email"`              | Client Ip address                           |
-| `POST` | `"/clearClientIps/:email"`         | Clear Client Ip address                     |
-| `POST` | `"/addClient"`                     | Add Client to inbound                       |
-| `POST` | `"/:id/delClient/:clientId"`       | Delete Client by clientId\*                 |
-| `POST` | `"/updateClient/:clientId"`        | Update Client by clientId\*                 |
-| `POST` | `"/:id/resetClientTraffic/:email"` | Reset Client's Traffic                      |
-| `POST` | `"/resetAllTraffics"`              | Reset traffics of all inbounds              |
-| `POST` | `"/resetAllClientTraffics/:id"`    | Reset traffics of all clients in an inbound |
-| `POST` | `"/delDepletedClients/:id"`        | Delete inbound depleted clients (-1: all)   |
-| `POST` | `"/onlines"`                       | Get Online users ( list of emails )         |
+|  方法  | 路径                               | 操作                              |
+| :----: | ---------------------------------- | --------------------------------- |
+| `GET`  | `"/list"`                          | 获取所有入站                      |
+| `GET`  | `"/get/:id"`                       | 获取所有入站以及inbound.id        |
+| `GET`  | `"/getClientTraffics/:email"`      | 通过电子邮件获取客户端流量        |
+| `GET`  | `"/createbackup"`                  | Telegram 机器人向管理员发送备份   |
+| `POST` | `"/add"`                           | 添加入站                          |
+| `POST` | `"/del/:id"`                       | 删除入站                          |
+| `POST` | `"/update/:id"`                    | 更新入站                          |
+| `POST` | `"/clientIps/:email"`              | 客户端 IP 地址                    |
+| `POST` | `"/clearClientIps/:email"`         | 清除客户端 IP 地址                |
+| `POST` | `"/addClient"`                     | 将客户端添加到入站                |
+| `POST` | `"/:id/delClient/:clientId"`       | 通过 clientId\* 删除客户端        |
+| `POST` | `"/updateClient/:clientId"`        | 通过 clientId\* 更新客户端        |
+| `POST` | `"/:id/resetClientTraffic/:email"` | 重置客户端的流量                  |
+| `POST` | `"/resetAllTraffics"`              | 重置所有入站的流量                |
+| `POST` | `"/resetAllClientTraffics/:id"`    | 重置入站中所有客户端的流量        |
+| `POST` | `"/delDepletedClients/:id"`        | 删除入站耗尽的客户端 （-1： all） |
+| `POST` | `"/onlines"`                       | 获取在线用户 （ 电子邮件列表 ）   |
 
 \*- `clientId` 项应该使用下列数据
 
@@ -545,17 +492,16 @@ XUI_BIN_FOLDER="bin" XUI_DB_FOLDER="/etc/x-ui" go build main.go
 
 ## 预览
 
-![1](https://github.com/MHSanaei/3x-ui/blob/main/media/1.png?raw=true)
-![2](https://github.com/MHSanaei/3x-ui/blob/main/media/2.png?raw=true)
-![3](https://github.com/MHSanaei/3x-ui/blob/main/media/3.png?raw=true)
-![4](https://github.com/MHSanaei/3x-ui/blob/main/media/4.png?raw=true)
-![5](https://github.com/MHSanaei/3x-ui/blob/main/media/5.png?raw=true)
-![6](https://github.com/MHSanaei/3x-ui/blob/main/media/6.png?raw=true)
-![7](https://github.com/MHSanaei/3x-ui/blob/main/media/7.png?raw=true)
+![1](./media/1.png)
+![2](./media/2.png)
+![3](./media/3.png)
+![4](./media/4.png)
+![5](./media/5.png)
+![6](./media/6.png)
+![7](./media/7.png)
 
 ## 特别感谢
 
-- [MHSanaei](https://github.com/MHSanaei/3x-ui/)
 - [alireza0](https://github.com/alireza0/)
 
 ## 致谢
@@ -565,4 +511,4 @@ XUI_BIN_FOLDER="bin" XUI_DB_FOLDER="/etc/x-ui" go build main.go
 
 ## Star趋势
 
-[![Stargazers over time](https://starchart.cc/aircross/3x-ui.svg)](https://starchart.cc/aircross/3x-ui)
+[![Stargazers over time](https://starchart.cc/MHSanaei/3x-ui.svg)](https://starchart.cc/MHSanaei/3x-ui)
