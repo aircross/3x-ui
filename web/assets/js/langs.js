@@ -1,7 +1,7 @@
 const supportLangs = [
     {
         name: '中文',
-        value: 'zh-Hans',
+        value: 'zh-CN',
         icon: '🇨🇳',
     },
     {
