@@ -1,6 +1,6 @@
 # 3X-UI
 
-[English](/README.md) | [Chinese](/README.zh.md) | [Español](/README.es_ES.md)
+[中文](https://github.com/aircross/3x-ui/blob/main/README.md) | [Español](https://github.com/aircross/3x-ui/blob/main/README.es_ES.md) | [Русский](https://github.com/aircross/3x-ui/blob/main/README.ru_RU.md)
 
 <p align="center"><a href="#"><img src="./media/3X-UI.png" alt="Image"></a></p>
 

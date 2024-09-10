@@ -1,6 +1,6 @@
 # 3X-UI
 
-[English](/README.md) | [Chinese](/README.zh.md) | [Español](/README.es_ES.md)
+[English](https://github.com/aircross/3x-ui/blob/main/README.en.md) | [Español](https://github.com/aircross/3x-ui/blob/main/README.es_ES.md) | [Русский](https://github.com/aircross/3x-ui/blob/main/README.ru_RU.md)
 
 
 **一个更好的面板 • 基于Xray Core构建**
