@@ -23,10 +23,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.
 
 ## Установка определённой версии
 
-Чтобы установить нужную вам версию, добавьте номер версии в конец команды установки. Например, `v2.3.15`:
+Чтобы установить нужную вам версию, добавьте номер версии в конец команды установки. Например, `v2.4.1`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.15
+bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.4.1
 ```
 
 ## SSL Сертификат

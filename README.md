@@ -122,10 +122,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.
 
 ## 安装指定版本
 
-要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.3.15`:
+要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.4.1`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.3.15
+bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.4.1
 ```
 
 ## SSL 认证
