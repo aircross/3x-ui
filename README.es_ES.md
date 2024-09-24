@@ -262,6 +262,7 @@ if you want to purchase some virtual servers,you can purchase by my aff link:
 - AlmaLinux 9+
 - Rockylinux 9+
 - OpenSUSE Tubleweed
+- Amazon Linux 2023
 
 ## Arquitecturas y Dispositivos Compatibles
 
