@@ -120,12 +120,12 @@ x-ui的Docker执行命令添加下面这一行
 bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh)
 ```
 
-## 安装指定版本
+## Install Custom Version
 
-要安装所需的版本，请将该版本添加到安装命令的末尾。 e.g., ver `v2.4.1`:
+To install your desired version, add the version to the end of the installation command. e.g., ver `v2.4.2`:
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/aircross/3x-ui/master/install.sh) v2.4.1
+bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v2.4.2
 ```
 
 ## SSL 认证
