@@ -44,7 +44,7 @@ jobs:
           fi
           # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
           # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
-          echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
+          echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v7,linux/arm/v8,linux/arm64
           echo ::set-output name=docker_image::${{ secrets.DOCKER_USERNAME }}/3x-ui
     
       - name: Build and push docker image
