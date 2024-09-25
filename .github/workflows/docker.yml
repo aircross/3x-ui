@@ -44,12 +44,13 @@ jobs:
           fi
           # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64
           # echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
-          echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v7,linux/arm/v8,linux/arm64
+          echo ::set-output name=docker_platforms::linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64
           echo ::set-output name=docker_image::${{ secrets.DOCKER_USERNAME }}/3x-ui
     
       - name: Build and push docker image
         run: |
-          docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
+          # docker buildx build --platform ${{ steps.prepare.outputs.docker_platforms }} \
+          docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm/v8,linux/arm64 \
           --output "type=image,push=true" \
           --tag "${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}" \
           --tag "${{ steps.prepare.outputs.docker_image }}:latest" \
